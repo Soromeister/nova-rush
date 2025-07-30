@@ -1,0 +1,31 @@
+micronaut:
+  application:
+    name: nova-rush
+  server:
+    port: ${NOVARUSH_PORT:8080}
+    host: ${NOVARUSH_HOST:127.0.0.1}
+    log-handled-exceptions: false
+  session:
+    http:
+      cookie: true
+      header: true
+  metrics:
+    enabled: true
+eclipsestore:
+  rest:
+    enabled: true
+    path: store-data/default
+  storage:
+    main:
+      root-class: com.gabannicusor.common.DataRoot
+      storage-directory: build/nova-rush-storage
+jackson:
+  default-property-inclusion: non_null
+  serialization:
+    fail-on-empty-beans: false
+  deserialization:
+    fail-on-unknown-properties: false
+  mapper:
+    default-view-inclusion: true
+  generator:
+    write-dates-as-timestamps: false
